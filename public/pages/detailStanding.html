@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Football</title>
+    <meta name="description" content="Football" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../css/materialize.min.css" />
+    <link rel="manifest" href="../manifest.json" />
+    <meta name="theme-color" content="#c0ca33" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Navigasi -->
+    <nav class="lime darken-1" role="navigation">
+        <div class="nav-wrapper container">
+            <a href="#" class="brand-logo" id="logo-container">Standing</a>
+            <a href="./standings.html" class="sidenav-trigger" data-target="nav-mobile">
+                <i class="material-icons">arrow_back</i>
+            </a>
+            <ul class="topnav right hide-on-med-and-down"></ul>
+            <ul class="sidenav" id="nav-mobile"></ul>
+        </div>
+    </nav>
+    <!-- Akhir Navigasi -->
+
+    <div class="container" id="body-content">
+        <div class="row">
+            <p>Competition : <span id="competitionName"></span></p>
+            <p>Season : <span id="seasonStartName"></span> | <span id="seasonEndName"></span></p>
+            <table class="striped highlight centered responsive-table">
+                <thead>
+                    <tr>
+                        <th>Position</th>
+                        <th>Club</th>
+                        <th>Won</th>
+                        <th>Draw</th>
+                        <th>Lost</th>
+                        <th>Goal For</th>
+                        <th>Goal Difference</th>
+                        <th>Goal Against</th>
+                        <th>Point</th>
+                    </tr>
+                </thead>
+                <tbody id="tblStandings">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/materialize.min.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/sw.js"></script>
+    <script>
+        if (!('serviceWorker' in navigator)) {
+            console.log("Service worker tidak didukung browser ini.");
+        } else {
+            registerServiceWorker('../service-worker.js');
+            requestPermission();
+        }
+        document.addEventListener("DOMContentLoaded", function() {
+            getStandingsById();
+        });
+    </script>
+</body>
+
+</html>

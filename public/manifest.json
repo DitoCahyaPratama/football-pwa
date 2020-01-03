@@ -1,0 +1,15 @@
+{
+    "name": "Football",
+    "gcm_sender_id": "484197386555",
+    "short_name": "Football",
+    "description": "Football Org",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#ffffff",
+    "icons": [{
+        "src": "icon.png",
+        "sizes": "512x512",
+        "type": "image/png"
+    }]
+}
